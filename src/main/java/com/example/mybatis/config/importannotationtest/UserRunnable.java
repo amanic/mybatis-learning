@@ -19,7 +19,7 @@ public class UserRunnable implements Runnable{
         try{
             for (int i = 0; i <10 ; i++) {
                 System.out.println("============"+i);
-
+                TimeUnit.SECONDS.sleep(1);
             }
         }catch (Exception e){
             e.printStackTrace();

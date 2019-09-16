@@ -10,6 +10,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 @ComponentScan(basePackages = "com.example.mybatis")
 @MapperScan(value = "com.example.mybatis")
@@ -21,8 +23,9 @@ public class MybatisDemoApplication {
 		ConfigurableApplicationContext context = null;
 		try {
 			context = SpringApplication.run(MybatisDemoApplication.class, args);
-			context.getBean(Runnable.class).run();
-			System.out.println("main");
+//			context.getBean(Runnable.class).run();
+//			System.out.println("main");
+			Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
