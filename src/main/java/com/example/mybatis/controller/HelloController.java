@@ -1,8 +1,10 @@
 package com.example.mybatis.controller;
 
+import com.example.mybatis.config.importannotationtest.User;
 import com.example.mybatis.dao.DemoDao;
-import com.example.mybatis.model.TempTable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("hello")
+//@ConditionalOnClass(name = "com.example.mybatis.config.conditiontest.MyConditionalClass")
+@ConditionalOnBean(value = User.class)
 public class HelloController {
 
     @Autowired
